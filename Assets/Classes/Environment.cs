@@ -63,7 +63,7 @@ public class Environment {
         {
             for (int j = 0; j < Grid.GetLength(1); j++)
             {
-                if (Grid[i, j].Temperature > 450)
+				if (Grid[i, j].Temperature > 450 && !Grid[i,j].isWall)
                 {
                     var fire = GameObject.Instantiate(Resources.Load("Fire")) as GameObject;
                     fire.transform.position = new Vector3(i, -0.5f, j);

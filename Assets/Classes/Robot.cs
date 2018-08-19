@@ -6,7 +6,10 @@ using UnityEngine;
 /// </summary>
 public class Robot : MonoBehaviour {
 
-	List<IDevice> _machineList = new List<IDevice>();
+	/// <summary>
+	/// List of devices that the robot can utilize
+	/// </summary>
+	List<IDevice> _deviceList = new List<IDevice>();
 
     private Environment _environment;
 
@@ -17,8 +20,9 @@ public class Robot : MonoBehaviour {
         _environment = new Environment();
 
         // Add Sensors here
-        _machineList.Add(new WallDevice());
-        _machineList.Add(new TemperatureDevice());
+        _deviceList.Add(new WallDevice());
+        _deviceList.Add(new TemperatureDevice());
+		_deviceList.Add(new HumidityDevice());
 
         // Execute the Action method every 0.1 seconds
         InvokeRepeating("Action", 1, .1f);
@@ -31,10 +35,10 @@ public class Robot : MonoBehaviour {
     {
         // Get a random direction to perform detection
         var randomVector = new Vector2(transform.position.x + Random.Range(-1, 2), transform.position.z + Random.Range(-1, 2));
-        var node = Detector(randomVector);
+        var node = VirtualDetector(randomVector);
         if (node == null) return;
 
-        foreach (var machine in _machineList)
+        foreach (var machine in _deviceList)
         {
             machine.Measure(node);
             machine.PerformAction(this);
@@ -61,12 +65,20 @@ public class Robot : MonoBehaviour {
         Destroy(_environment.GridObjects[(int)position.x, (int)position.y]);
     }
 
+	/// <summary>
+	/// Adds a device.
+	/// </summary>
+	/// <param name="device">Device</param>
+	public void AddDevice(IDevice device){
+		_deviceList.Add (device);
+	}
+
     /// <summary>
     /// Our detector
     /// </summary>
     /// <param name="position">Detection </param>
     /// <returns>A Node at the specified position</returns>
-    private Node Detector(Vector2 position)
+    private Node VirtualDetector(Vector2 position)
     {
         if (position.x > 0 &&
             position.y > 0 &&
