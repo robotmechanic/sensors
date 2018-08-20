@@ -1,5 +1,4 @@
-<iframe src="https://giphy.com/embed/XJnTUe61NGCdC0XHTr" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/XJnTUe61NGCdC0XHTr">via GIPHY</a></p>
-
+![Alt Text](https://media.giphy.com/media/XJnTUe61NGCdC0XHTr/giphy.gif)
 # sensors
 Sensors Assignment
 
