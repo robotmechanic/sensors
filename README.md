@@ -1,3 +1,5 @@
+<iframe src="https://giphy.com/embed/XJnTUe61NGCdC0XHTr" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/XJnTUe61NGCdC0XHTr">via GIPHY</a></p>
+
 # sensors
 Sensors Assignment
 
@@ -8,3 +10,4 @@ In addition to adding a Wall detector device, I thought it might be fun for the 
 The Environment class creates a randomized test environment with randomized attributes such as temperature, humidity, etc. It is instantiated by the Robot class when the Robot is initialized. 
 
 Anyway, I hope I haven’t totally missed the mark on this assignment and at the very least addressed the requirements. 
+
